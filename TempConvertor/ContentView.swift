@@ -58,7 +58,7 @@ struct ContentView: View {
                             TextField("Amount", text: $leftAmount)
                                 .textFieldStyle(.roundedBorder)
                                 .padding(.all, 20)
-                                .keyboardType(.decimalPad)
+                                .keyboardType(.numbersAndPunctuation)
                                 .focused($leftTyping)
                         }
                     }
@@ -87,7 +87,7 @@ struct ContentView: View {
                             TextField("Amount", text: $rightAmount)
                                 .textFieldStyle(.roundedBorder)
                                 .padding(.all, 20)
-                                .keyboardType(.decimalPad)
+                                .keyboardType(.numbersAndPunctuation)
                                 .focused($rightTyping)
 
                         }
@@ -140,6 +140,10 @@ struct ContentView: View {
                     showWarning = true
                 }
             }
+        }
+        .onTapGesture {
+            leftTyping = false
+            rightTyping = false
         }
     }
 }
