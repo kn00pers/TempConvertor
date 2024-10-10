@@ -32,22 +32,19 @@ enum Units: Double, CaseIterable, Identifiable {
     var image: Image {
         switch self {
         case .kelvin:
-            return Image(systemName: "thermometer")
+            return Image(systemName: "k.circle")
         case .celsius:
-            return Image(systemName: "thermometer.sun")
+            return Image(systemName: "degreesign.celsius")
         case .fahrenheit:
-            return Image(systemName: "thermometer.snowflake")
+            return Image(systemName: "degreesign.farenheit")
         case .rankine:
-            return Image(systemName: "thermometer")
+            return Image(systemName: "k.square")
         case .reaumur:
-            return Image(systemName: "thermometer")
+            return Image(systemName: "thermometer.transmission")
         }
     }
 
-    func convert(_ amountString: String, to target: Units) -> String {
-        guard let amount = Double(amountString) else { return "" }
-
-        // Konwersja do Kelvina
+    func convert(_ amount: Double, to target: Units) -> String {
         let kelvinValue: Double
         switch self {
         case .kelvin:
@@ -62,7 +59,6 @@ enum Units: Double, CaseIterable, Identifiable {
             kelvinValue = amount * 1.25 + 273.15
         }
 
-        // Konwersja z Kelvina do docelowej jednostki
         let convertedAmount: Double
         switch target {
         case .kelvin:
@@ -81,9 +77,24 @@ enum Units: Double, CaseIterable, Identifiable {
     }
 
     static func convert(_ amount: String, from sourceUnit: Units, to targetUnit: Units) -> String {
-        return sourceUnit.convert(amount, to: targetUnit)
+        guard let amountDouble = Double(amount) else { return "" }
+        return sourceUnit.convert(amountDouble, to: targetUnit)
+    }
+    
+    func isBelowAbsoluteZero(value: Double) -> Bool {
+        switch self {
+        case .kelvin:
+            return value < 0
+        case .celsius:
+            return value < -273.15
+        case .fahrenheit:
+            return value < -459.67
+        case .rankine:
+            return value < 0.0002
+        case .reaumur:
+            return value < -218.52
+        }
     }
 
     var id: Units { self }
 }
-
