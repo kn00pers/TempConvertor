@@ -37,6 +37,12 @@ To run the TempConverter application locally, follow these steps:
 3. The converted value will automatically display in the corresponding output field.
 4. **Note**: Temperatures below 0 Kelvin are not valid and will trigger an alert indicating that this value is impossible to achieve.
 
+## Screenshots
+
+<img src='https://github.com/user-attachments/assets/9a4f7af3-3800-4237-9888-80278060a082' width=300 height=600>
+<img src='https://github.com/user-attachments/assets/aa0006c0-4992-4b16-8643-62d0d85088e4' width=300 height=600>
+<img src='https://github.com/user-attachments/assets/42cb721d-ea2d-4ddf-8119-de949042ee9c' width=300 height=600>
+
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or new features, feel free to fork the repository and submit a pull request.
