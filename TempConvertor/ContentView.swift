@@ -36,7 +36,7 @@ struct ContentView: View {
                     .scaledToFit()
                     .frame(height: 25)
                 
-                Text("TempConverter")
+                Text("TempConvertor")
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .padding(.bottom, 50)
