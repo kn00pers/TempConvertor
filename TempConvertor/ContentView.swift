@@ -93,7 +93,6 @@ struct ContentView: View {
                         }
                     }
                 }
-
                 if showWarning {
                     Text("Please note that any temperature below 0 Kelvin is considered absolute zero, and it is impossible to reach such a value.")
                         .foregroundColor(.red)
