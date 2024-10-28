@@ -91,6 +91,10 @@ struct ContentView: View {
                                 .focused($rightTyping)
 
                         }
+
+                    }
+                    .onTapGesture {
+                        showSelectUnit.toggle()
                     }
                 }
                 if showWarning {
